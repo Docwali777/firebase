@@ -15696,8 +15696,6 @@ var _firebase2 = _interopRequireDefault(_firebase);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-console.log(_firebase2.default.auth());
-
 var mountNode = document.getElementById('wali');
 
 (0, _reactDom.render)(_react2.default.createElement(
@@ -30788,7 +30786,13 @@ var _react = __webpack_require__(6);
 
 var _react2 = _interopRequireDefault(_react);
 
+var _firebase = __webpack_require__(269);
+
+var _firebase2 = _interopRequireDefault(_firebase);
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
@@ -30799,22 +30803,88 @@ function _inherits(subClass, superClass) { if (typeof superClass !== "function" 
 var SignUp = function (_Component) {
   _inherits(SignUp, _Component);
 
-  function SignUp() {
+  function SignUp(props) {
     _classCallCheck(this, SignUp);
 
-    return _possibleConstructorReturn(this, (SignUp.__proto__ || Object.getPrototypeOf(SignUp)).apply(this, arguments));
+    var _this = _possibleConstructorReturn(this, (SignUp.__proto__ || Object.getPrototypeOf(SignUp)).call(this, props));
+
+    _this.onChange = function (e) {
+      _this.setState(_defineProperty({}, e.target.name, e.target.value));
+    };
+
+    _this.onSubmit = function (e) {
+      e.preventDefault();
+      var _this$state = _this.state,
+          email = _this$state.email,
+          password = _this$state.password;
+
+
+      _firebase2.default.auth().createUserWithEmailAndPassword(email, password).catch(function (errors) {
+        _this.setState({ errors: errors });
+      });
+    };
+
+    _this.state = {
+      email: '',
+      password: '',
+      errors: {}
+    };
+    return _this;
   }
 
   _createClass(SignUp, [{
     key: 'render',
     value: function render() {
+      console.log(this.state.errors);
       return _react2.default.createElement(
-        'div',
-        null,
+        'form',
+        { onSubmit: this.onSubmit },
         _react2.default.createElement(
-          'h1',
-          null,
-          'SignUp '
+          'div',
+          { className: 'form-inline' },
+          _react2.default.createElement(
+            'h2',
+            null,
+            'Sign Up'
+          ),
+          _react2.default.createElement(
+            'div',
+            { className: 'form-group' },
+            _react2.default.createElement(
+              'label',
+              null,
+              'Email'
+            ),
+            _react2.default.createElement('input', {
+              className: 'form-control',
+              type: 'text',
+              name: 'email',
+              placeholder: 'email',
+              onChange: this.onChange
+            })
+          ),
+          _react2.default.createElement(
+            'div',
+            { className: 'form-group' },
+            _react2.default.createElement(
+              'label',
+              null,
+              'Password'
+            ),
+            _react2.default.createElement('input', {
+              className: 'form-control',
+              type: 'password',
+              name: 'password',
+              placeholder: 'Passsword',
+              onChange: this.onChange
+            }),
+            error.messagingSenderId
+          ),
+          _react2.default.createElement(
+            'button',
+            { className: 'btn btn-primary' },
+            'Submit'
+          )
         )
       );
     }
