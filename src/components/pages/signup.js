@@ -33,10 +33,10 @@ this.setState({errors})
 }
   render(){
   const { errors }  = this.state
-  console.log(this.props.user);
-    return (
+    return (  <div className='container'>
+      <div className='row'>
     <form onSubmit={this.onSubmit}>
-      <div className='form-inline'>
+
         <h2>Sign Up</h2>
 
         <div className='form-group' >
@@ -46,7 +46,7 @@ this.setState({errors})
               type='text'
               name='email'
               placeholder='email'
-onChange={this.onChange}
+      onChange={this.onChange}
           />
         </div>
 
@@ -63,11 +63,13 @@ onChange={this.onChange}
         </div>
 
           <button className='btn btn-primary'>Submit</button>
-        </div>
+
         {<span>{errors.messsage != 'undefined' ? errors.message :
         ''}</span>}
         <div><Link to={'/signin'}>Alreay a user? Sign in </Link></div>
     </form>
+  </div>
+    </div>
     )
   }
 }

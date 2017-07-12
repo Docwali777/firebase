@@ -36068,68 +36068,71 @@ var SignIn = function (_Component) {
     value: function render() {
       var errors = this.state.errors;
 
-      console.log(this.props.user);
       return _react2.default.createElement(
-        'form',
-        { onSubmit: this.onSubmit },
+        'div',
+        { className: 'container' },
         _react2.default.createElement(
           'div',
-          { className: 'form-inline' },
+          { className: 'row' },
           _react2.default.createElement(
-            'h2',
-            null,
-            'Sign In'
-          ),
-          _react2.default.createElement(
-            'div',
-            { className: 'form-group' },
+            'form',
+            { onSubmit: this.onSubmit, className: 'form-group' },
             _react2.default.createElement(
-              'label',
+              'h2',
               null,
-              'Email'
+              'Sign In'
             ),
-            _react2.default.createElement('input', {
-              className: 'form-control',
-              type: 'text',
-              name: 'email',
-              placeholder: 'email',
-              onChange: this.onChange
-            })
-          ),
-          _react2.default.createElement(
-            'div',
-            { className: 'form-group' },
             _react2.default.createElement(
-              'label',
-              null,
-              'Password'
+              'div',
+              { className: 'form-group' },
+              _react2.default.createElement(
+                'label',
+                null,
+                'Email'
+              ),
+              _react2.default.createElement('input', {
+                className: 'form-control',
+                type: 'text',
+                name: 'email',
+                placeholder: 'email',
+                onChange: this.onChange
+              })
             ),
-            _react2.default.createElement('input', {
-              className: 'form-control',
-              type: 'password',
-              name: 'password',
-              placeholder: 'Passsword',
-              onChange: this.onChange
-            })
-          ),
-          _react2.default.createElement(
-            'button',
-            { className: 'btn btn-primary' },
-            'Submit'
-          )
-        ),
-        _react2.default.createElement(
-          'span',
-          null,
-          errors.messsage != 'undefined' ? errors.message : ''
-        ),
-        _react2.default.createElement(
-          'div',
-          null,
-          _react2.default.createElement(
-            _reactRouter.Link,
-            { to: '/signup' },
-            'If you are not a user. Sign up '
+            _react2.default.createElement(
+              'div',
+              { className: 'form-group' },
+              _react2.default.createElement(
+                'label',
+                null,
+                'Password'
+              ),
+              _react2.default.createElement('input', {
+                className: 'form-control',
+                type: 'password',
+                name: 'password',
+                placeholder: 'Passsword',
+                onChange: this.onChange
+              })
+            ),
+            _react2.default.createElement(
+              'button',
+              { className: 'btn btn-primary' },
+              'Submit'
+            ),
+            _react2.default.createElement(
+              'span',
+              null,
+              errors.messsage != 'undefined' ? errors.message : ''
+            ),
+            _react2.default.createElement(
+              'div',
+              null,
+              _react2.default.createElement(
+                _reactRouter.Link,
+                { to: '/signup' },
+                'If you are not a user. Sign up '
+              )
+            )
           )
         )
       );
@@ -36221,68 +36224,71 @@ var SignUp = function (_Component) {
     value: function render() {
       var errors = this.state.errors;
 
-      console.log(this.props.user);
       return _react2.default.createElement(
-        'form',
-        { onSubmit: this.onSubmit },
+        'div',
+        { className: 'container' },
         _react2.default.createElement(
           'div',
-          { className: 'form-inline' },
+          { className: 'row' },
           _react2.default.createElement(
-            'h2',
-            null,
-            'Sign Up'
-          ),
-          _react2.default.createElement(
-            'div',
-            { className: 'form-group' },
+            'form',
+            { onSubmit: this.onSubmit },
             _react2.default.createElement(
-              'label',
+              'h2',
               null,
-              'Email'
+              'Sign Up'
             ),
-            _react2.default.createElement('input', {
-              className: 'form-control',
-              type: 'text',
-              name: 'email',
-              placeholder: 'email',
-              onChange: this.onChange
-            })
-          ),
-          _react2.default.createElement(
-            'div',
-            { className: 'form-group' },
             _react2.default.createElement(
-              'label',
-              null,
-              'Password'
+              'div',
+              { className: 'form-group' },
+              _react2.default.createElement(
+                'label',
+                null,
+                'Email'
+              ),
+              _react2.default.createElement('input', {
+                className: 'form-control',
+                type: 'text',
+                name: 'email',
+                placeholder: 'email',
+                onChange: this.onChange
+              })
             ),
-            _react2.default.createElement('input', {
-              className: 'form-control',
-              type: 'password',
-              name: 'password',
-              placeholder: 'Passsword',
-              onChange: this.onChange
-            })
-          ),
-          _react2.default.createElement(
-            'button',
-            { className: 'btn btn-primary' },
-            'Submit'
-          )
-        ),
-        _react2.default.createElement(
-          'span',
-          null,
-          errors.messsage != 'undefined' ? errors.message : ''
-        ),
-        _react2.default.createElement(
-          'div',
-          null,
-          _react2.default.createElement(
-            _reactRouter.Link,
-            { to: '/signin' },
-            'Alreay a user? Sign in '
+            _react2.default.createElement(
+              'div',
+              { className: 'form-group' },
+              _react2.default.createElement(
+                'label',
+                null,
+                'Password'
+              ),
+              _react2.default.createElement('input', {
+                className: 'form-control',
+                type: 'password',
+                name: 'password',
+                placeholder: 'Passsword',
+                onChange: this.onChange
+              })
+            ),
+            _react2.default.createElement(
+              'button',
+              { className: 'btn btn-primary' },
+              'Submit'
+            ),
+            _react2.default.createElement(
+              'span',
+              null,
+              errors.messsage != 'undefined' ? errors.message : ''
+            ),
+            _react2.default.createElement(
+              'div',
+              null,
+              _react2.default.createElement(
+                _reactRouter.Link,
+                { to: '/signin' },
+                'Alreay a user? Sign in '
+              )
+            )
           )
         )
       );
@@ -38502,8 +38508,7 @@ var user = exports.user = function user() {
   switch (action.type) {
     case 'SIGNED_IN':
       var signin = _extends({}, state);
-      return { user: _extends({}, signin, action.payload) };
-
+      return { user: _extends({}, signin.user, action.payload) };
   }
   return state;
 };
