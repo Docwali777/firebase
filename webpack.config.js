@@ -7,11 +7,12 @@ module.exports = {
     filename: 'bundle.js',
     path: path.join(__dirname, 'public')
   },
+  watch: true,
   module: {
     rules: [
       {
         test: /\.js$/,
-        exclude: /\node_modules/,
+        exclude: /node_modules/,
         loader: 'babel-loader',
         query: {
           presets: ["es2015", "react", "stage-1"]

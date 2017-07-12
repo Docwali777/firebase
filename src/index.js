@@ -8,6 +8,7 @@ import SignIn from './components/pages/signin'
 import SignUp from './components/pages/signup'
 
 import firebaseApp from './firebase.js'
+console.log(firebaseApp.auth());
 
 const mountNode = document.getElementById('wali')
 
