@@ -1,5 +1,11 @@
 import React, { Component } from 'react'
 import  firebaseApp from '../../firebase'
+import { Link } from 'react-router'
+
+import { connect } from 'react-redux'
+
+import { logUser } from '../../actions/index'
+
 
 class SignUp extends Component{
 constructor(props){
@@ -26,11 +32,13 @@ this.setState({errors})
 
 }
   render(){
-    console.log(this.state.errors);
+  const { errors }  = this.state
+  console.log(this.props.user);
     return (
     <form onSubmit={this.onSubmit}>
       <div className='form-inline'>
         <h2>Sign Up</h2>
+
         <div className='form-group' >
           <label>Email</label>
           <input
@@ -52,14 +60,22 @@ onChange={this.onChange}
                       onChange={this.onChange}
                   />
 
-{error.messagingSenderId}
         </div>
 
           <button className='btn btn-primary'>Submit</button>
         </div>
-
+        {<span>{errors.messsage != 'undefined' ? errors.message :
+        ''}</span>}
+        <div><Link to={'/signin'}>Alreay a user? Sign in </Link></div>
     </form>
     )
   }
 }
-export default SignUp
+
+function mapStateToProps(state){
+return{
+  user: state.user
+}
+}
+
+export default connect(mapStateToProps, {logUser})(SignUp)
